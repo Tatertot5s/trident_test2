@@ -1,0 +1,52 @@
+{
+    "model":{
+        "type":"minecraft:component",
+        "component":"minecraft:custom_name",
+        "cases": [
+            {
+                "when":"Loyalty",
+                "model": {
+                    "type":"minecraft:select",
+                    "cases":[
+                        {
+                            "model": {
+                                "parent": "minecraft:item/generated",
+                                "textures": {
+                                    "layer0": "minecraft:item/trident"
+                                    }
+                            },
+                            "when": [
+                                "gui",
+                                "ground",
+                                "fixed",
+                                "on_shelf"
+                            ]
+                        }
+                    ],
+                    "fallback": {
+                        "type": "minecraft:condition",
+                        "on_false": {
+                            "type": "minecraft:special",
+                                "base": "minecraft:item/trident_in_hand",
+                                "model": {
+                                "type": "minecraft:trident"
+                                }
+                            },
+                        "on_true": {
+                            "type": "minecraft:special",
+                                "base": "minecraft:item/trident_throwing",
+                                "model": {
+                                "type": "minecraft:trident"
+                                }
+                            },
+                            "property": "minecraft:using_item"
+                        },
+                    "property": "minecraft:display_context"
+                }
+            },
+            {
+                "when":"Riptide"
+            }
+        ]
+    }
+}
