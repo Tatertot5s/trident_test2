@@ -3,9 +3,9 @@
 		"description": [
 				{"text":"Loyalty", "color":"#9c0000"},
 				{"text":" & ", "color":"white"},
-                {"text":"Riptide", "color":"#3631c2"},
-                {"text":" Colors!", "color":"white"},
-                "\n",
+				{"text":"Riptide", "color":"#3631c2"},
+				{"text":" Colors!", "color":"white"},
+				"\n",
 				{"text":"Made by Indy ", "color":"#bdbdbd"},
 				{"player": {"name":"Tatertot5"}, "color":"white"},
 				{"text":" / ", "color":"#bdbdbd"},
