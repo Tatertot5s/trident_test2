@@ -28,18 +28,12 @@
 						"type": "minecraft:condition",
 						"property": "minecraft:using_item",
 						"on_true": {
-							"type": "minecraft:special",
-							"model": {
-								"type": "minecraft:trident"
-							},
-							"base": "minecraft:item/trident_throwing"
+							"type": "minecraft:model",
+							"model": "minecraft:entity/riptide_throwing"
 						},
 						"on_false": {
-							"type": "minecraft:special",
-							"model": {
-								"type": "minecraft:trident"
-							},
-							"base": "minecraft:item/trident_in_hand"
+							"type": "minecraft:model",
+							"model": "minecraft:entity/riptide_in_hand"
 						}
 					}
 				}
@@ -69,18 +63,12 @@
 						"type": "minecraft:condition",
 						"property": "minecraft:using_item",
 						"on_true": {
-							"type": "minecraft:special",
-							"model": {
-								"type": "minecraft:trident"
-							},
-							"base": "minecraft:item/loyalty_throwing"
+							"type": "minecraft:model",
+							"model": "minecraft:entity/loyalty_throwing"
 						},
 						"on_false": {
-							"type": "minecraft:special",
-							"model": {
-								"type": "minecraft:trident"
-							},
-							"base": "minecraft:item/loyalty_in_hand"
+							"type": "minecraft:model",
+							"model": "minecraft:entity/loyalty_in_hand"
 						}
 					}
 				}
@@ -112,14 +100,14 @@
 					"model": {
 						"type": "minecraft:trident"
 					},
-					"base": "minecraft:item/trident_throwing"
+					"base": "minecraft:entity/trident_throwing"
 				},
 				"on_false": {
 					"type": "minecraft:special",
 					"model": {
 						"type": "minecraft:trident"
 					},
-					"base": "minecraft:item/trident_in_hand"
+					"base": "minecraft:entity/trident_in_hand"
 				}
 			}
 		}
