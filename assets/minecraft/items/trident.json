@@ -1,83 +1,89 @@
 {
 	"model": {
 		"type": "minecraft:select",
-		"component": "minecraft:enchantments",
+		"property": "minecraft:display_context",
 		"cases": [
 			{
-				"when": [{"minecraft:riptide": 3}],
+				"when": ["gui", "ground", "fixed", "on_shelf"],
 				"model": {
-					"type": "minecraft:select",
-					"property": "minecraft:display_context",
-					"cases": [
-						{
-							"when": ["gui", "ground", "fixed", "on_shelf"],
-							"model": {"type": "minecraft:model", "model": "minecraft:item/riptide"}
-						}
-					],
-					"fallback": {
-						"type": "minecraft:condition",
-						"property": "minecraft:using_item",
+						"type":"condition",
+						"property":"component",
+						"predicate":"enchantments",
+						"value": [{"enchantments":"riptide"}],
 						"on_true": {
-							"type": "minecraft:model",
-							"model": "minecraft:entity/riptide_throwing"
+							"type": "model",
+							"model": "minecraft:item/riptide"
 						},
 						"on_false": {
-							"type": "minecraft:model",
-							"model": "minecraft:entity/riptide_in_hand"
+							"type":"condition",
+							"property":"component",
+							"predicate":"enchantments",
+							"value": [{"enchantments":"loyalty"}],
+							"on_true": {
+								"type": "model",
+								"model": "minecraft:item/loyalty"
+							},
+							"on_false": {
+								"type": "model",
+								"model":"minecraft:item/trident"
+							}
 						}
 					}
 				}
-			},
-			{
-				"when":{"minecraft:loyalty": 3},
-				"model": {
-					"type": "minecraft:select",
-					"property": "minecraft:display_context",
-					"cases": [
-						{
-							"when": ["gui", "ground", "fixed", "on_shelf"],
-							"model": {"type": "minecraft:model", "model": "minecraft:item/loyalty"}
-						}
-					],
-					"fallback": {
-						"type": "minecraft:condition",
-						"property": "minecraft:using_item",
-						"on_true": {
-							"type": "minecraft:model",
-							"model": "minecraft:entity/loyalty_throwing"
-						},
-						"on_false": {
-							"type": "minecraft:model",
-							"model": "minecraft:entity/loyalty_in_hand"
-						}
-					}
-				}
-			}
-		],
-		"property": "minecraft:component",
-		"fallback": {
-			"type": "minecraft:select",
-			"property": "minecraft:display_context",
-			"cases": [
-					{
-						"when": ["gui", "ground", "fixed", "on_shelf"],
-						"model": {"type": "minecraft:model", "model": "minecraft:item/trident"}
-					}
 			],
 			"fallback": {
 				"type": "minecraft:condition",
 				"property": "minecraft:using_item",
 				"on_true": {
-					"type": "minecraft:special",
-					"model": {"type": "minecraft:trident"},
-					"base": "minecraft:entity/trident_throwing"
-				},
+						"type":"condition",
+						"property":"component",
+						"predicate":"enchantments",
+						"value": [{"enchantments":"riptide"}],
+						"on_true": {
+							"type": "model",
+							"model": "minecraft:entity/riptide_throwing"
+						},
+						"on_false": {
+							"type":"condition",
+							"property":"component",
+							"predicate":"enchantments",
+							"value": [{"enchantments":"loyalty"}],
+							"on_true": {
+								"type": "model",
+								"model": "minecraft:entity/loyalty_throwing"
+							},
+							"on_false": {
+								"type": "minecraft:special",
+								"model": {"type": "minecraft:trident"},
+								"base": "minecraft:entity/trident_throwing"
+							}
+						}
+					},
 				"on_false": {
-					"type": "minecraft:special",
-					"model": {"type": "minecraft:trident"},
-					"base": "minecraft:entity/trident_in_hand"
+						"type":"condition",
+						"property":"component",
+						"predicate":"enchantments",
+						"value": [{"enchantments":"riptide"}],
+						"on_true": {
+							"type": "model",
+							"model": "minecraft:entity/riptide_in_hand"
+						},
+						"on_false": {
+							"type":"condition",
+							"property":"component",
+							"predicate":"enchantments",
+							"value": [{"enchantments":"loyalty"}],
+							"on_true": {
+								"type": "model",
+								"model": "minecraft:entity/loyalty_in_hand"
+							},
+							"on_false": {
+								"type": "special",
+								"model": {"type": "minecraft:trident"},
+								"base": "minecraft:entity/trident_in_hand"
+							}
+						}
 				}
 			}
-		}
 	}
 }
